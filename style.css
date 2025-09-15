@@ -16,13 +16,31 @@ body, html {
     scroll-behavior: smooth;
 }
 
+/* Remove default browser top margin and collapse first section margins */
+body {
+    margin: 0;
+}
+
+section:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+section:first-of-type h1:first-child {
+    margin-top: 0;
+}
+
 /* Header styles */
 header {
-    position: relative;
+    position: sticky;
+    top: 0;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* Hamburger button styles */
@@ -34,6 +52,9 @@ header {
     cursor: pointer;
     padding: 10px;
     z-index: 1001;
+    position: fixed; /* so it doesn't occupy header space on mobile */
+    left: 8px;
+    top: 8px;
 }
 
 .hamburger span {
@@ -91,11 +112,33 @@ header {
         display: flex;
     }
     
-    /* Hide menu by default on mobile */
+    /* Collapse header on mobile so it doesn't take space, but remains present */
+    header {
+        padding: 0;
+        height: 0;
+        box-shadow: none;
+        background: transparent;
+        overflow: visible;
+    }
+    
+    /* Smaller hamburger bars to reduce header height */
+    .hamburger span {
+        width: 22px;
+        height: 2px;
+        margin: 3px 0;
+    }
+    
+    /* Tighter hamburger button padding on mobile */
+    .hamburger {
+        padding: 6px;
+        display: flex; /* visible on mobile */
+    }
+    
+    /* Full-width dropdown menu on mobile (position is set via JS) */
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 56px; /* will be overridden dynamically by JS */
         flex-direction: column;
         background-color: white;
         width: 100%;

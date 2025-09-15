@@ -8,16 +8,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
 </head>
 <body>
+    <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <header>
-        <!-- Hamburger menu button -->
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <!-- Navigation menu -->
-        <ul id="navMenu" class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
             <li><a href="#postulaty">Moje postulaty</a></li>
             <li><a href="#o-mnie">O mnie</a></li>
             <li><a href="#zespol">Zespół</a></li>
@@ -42,7 +39,7 @@
         <h2>Lekcje najpóźniej do 14:00</h2>
         <p>Optymalizacja planu lekcji, którą wprowadzę, spowoduje, że lekcje będą trwały najpóźniej do godziny 14:00.</p>
         <h2>McDonalds w szkolnym bufecie</h2>
-        <p>Chcemy prawdziwej restauracji, a nie drogich i niesmacznych obiadów! Proponuję otwarcie restauracji McDonalds prowadzonej przez nauczycieli za darmo!</p>
+        <p>Chcemy prawdziwej restauracji, a nie drogich i niesmacznych obiadów! Proponuję otwarcie restauracji McDonalds prowadzonej przez nauczycieli za darmo w ramach integracji pracowników szkoły!</p>
         <h2>Darmowy MultiSport!</h2>
         <p>Uważam, że każdy powinien móc za darmo korzystać z karty sportowej MultiSport!</p>
     </main>
@@ -61,32 +58,41 @@
         <h1>Zespół</h1>
     </main>
 
-    <!-- JavaScript na końcu body -->
     <script>
-        // Czekaj aż DOM się załaduje
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
+            const firstH1 = document.querySelector('section h1');
+            if (!hamburger || !navMenu) return;
             
-            // Sprawdź czy elementy istnieją
-            if (!hamburger || !navMenu) {
-                console.error('Hamburger lub navMenu nie znaleziono!');
-                return;
-            }
+            // Align hamburger vertically with first H1 and place menu under it (mobile)
+            const alignToFirstHeading = () => {
+                if (!firstH1) return;
+                const rect = firstH1.getBoundingClientRect();
+                const scrollY = window.scrollY || window.pageYOffset;
+                const topPos = rect.top + scrollY; // absolute Y of first H1
+                // place hamburger slightly above H1 line
+                hamburger.style.top = Math.max(8, topPos - 4) + 'px';
+                // make dropdown open under the hamburger
+                navMenu.style.top = Math.max(56, topPos + 32) + 'px';
+            };
             
-            // Dodaj event listener do hamburgera
-            hamburger.addEventListener('click', function() {
-                console.log('Hamburger clicked!'); // Debug
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
+            alignToFirstHeading();
+            window.addEventListener('resize', alignToFirstHeading);
+            window.addEventListener('scroll', alignToFirstHeading, { passive: true });
+
+            const toggleMenu = () => {
+                const isActive = navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active', isActive);
+                hamburger.setAttribute('aria-expanded', String(isActive));
+            };
             
-            // Zamknij menu po kliknięciu w link
-            const menuLinks = navMenu.querySelectorAll('a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
+            hamburger.addEventListener('click', toggleMenu);
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
                     navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
                 });
             });
         });
