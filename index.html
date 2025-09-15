@@ -168,7 +168,8 @@
                         .map((ch, i) => {
                             const isSpace = ch === ' ' || ch === '\u00A0';
                             const safe = isSpace ? '&nbsp;' : ch;
-                            const delay = (i * 40) + (lineIndex * 400);
+                            const baseDelay = 2000; // 2s global delay before animation starts
+                            const delay = baseDelay + (i * 40) + (lineIndex * 400);
                             return `<span class=\"char\" style=\"animation-delay:${delay}ms\">${safe}</span>`;
                         })
                         .join('');
