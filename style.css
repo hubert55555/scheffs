@@ -1,6 +1,67 @@
 main, section {
     text-align: center;
 }
+/* Hero banner overlay */
+.hero-section {
+    position: relative;
+}
+
+.hero-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-banner {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    background: transparent;
+    color: #39ff14; /* bright neon green */
+    -webkit-text-stroke: 0 transparent;
+    padding: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: clamp(36px, 8vw, 110px);
+    border-radius: 0;
+    box-shadow: none;
+    white-space: nowrap;
+}
+
+/* Smash-in per-letter animation */
+.hero-banner .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-40%) scale(1.4) rotate(-10deg);
+    will-change: transform, opacity;
+    animation: heroSmashIn 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes heroSmashIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-60%) scale(1.8) rotate(-18deg);
+        filter: blur(2px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(8%) scale(0.96) rotate(2deg);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-banner {
+        top: 60%;
+        letter-spacing: 4px;
+    }
+}
 
 main, section {
     margin-left: auto;
@@ -14,6 +75,27 @@ main {
 
 body, html {
     scroll-behavior: smooth;
+}
+/* Floating Instagram badge */
+.floating-instagram {
+    position: fixed;
+    right: 16px;
+    top: 40vh;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: white;
+    color: #000;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    text-decoration: none;
+    z-index: 1100;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+.floating-instagram:hover {
+    background: #f7f7f7;
 }
 
 /* Remove default browser top margin and collapse first section margins */

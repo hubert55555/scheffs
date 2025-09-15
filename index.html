@@ -22,24 +22,71 @@
         </ul>
     </header>
 
-    <section>
+    <!-- Always-visible Instagram badge -->
+    <a class="floating-instagram" href="https://instagram.com/filip_scheffs" target="_blank" rel="noopener noreferrer" aria-label="Instagram: filip_scheffs">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 2C4.24 2 2 4.24 2 7V17C2 19.76 4.24 22 7 22H17C19.76 22 22 19.76 22 17V7C22 4.24 19.76 2 17 2H7Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16 11.37C16.09 12.24 15.92 13.12 15.51 13.89C15.1 14.65 14.47 15.25 13.7 15.61C12.94 15.98 12.07 16.09 11.22 15.93C10.37 15.77 9.58 15.35 8.97 14.73C8.36 14.11 7.95 13.31 7.79 12.45C7.63 11.6 7.74 10.72 8.1 9.96C8.46 9.19 9.06 8.56 9.83 8.15C10.6 7.74 11.47 7.57 12.34 7.66C13.23 7.75 14.05 8.1 14.69 8.69C15.34 9.28 15.78 10.08 15.95 10.95C15.99 11.09 16 11.23 16 11.37Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M17.5 6.5H17.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>filip_scheffs</span>
+    </a>
+
+    <section class="hero-section">
         <h1>Filip Scheffs</h1>
         <h3>Kandydat na przewodniczącego SU ZSŁ</h3>
-        <img src="./img/1.jpeg" alt="filas goat">
+        <picture>
+            <source type="image/avif" srcset="./img/1-480.avif 480w, ./img/1-768.avif 768w, ./img/1-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/1-480.webp 480w, ./img/1-768.webp 768w, ./img/1-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/1.jpeg" alt="filas goat" fetchpriority="high">
+        </picture>
+        <div class="hero-banner" aria-hidden="true">GŁOSUJ <br> NA&nbsp;MNIE!</div>
     </section>
 
     <main id="postulaty">
         <h1>Moje postulaty</h1>
+        <h2>1000$ dla każdego wyborcy!</h2>
+        <p>Docenię wszystkich, którzy zagłosują za mną! Dla każdego, kto zagłosuje za mną, przygotuję 1000$!</p>
+        <picture>
+            <source type="image/avif" srcset="./img/2-480.avif 480w, ./img/2-768.avif 768w, ./img/2-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/2-480.webp 480w, ./img/2-768.webp 768w, ./img/2-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/2.jpeg" alt="1000$" loading="lazy" decoding="async">
+        </picture>
         <h2>Darmowa wycieczka do Energylandii</h2>
         <p>Chciałbym z pieniędzy rady rodziców zfinansować każdej klasie wycieczkę do Energylandii</p>
-        <h2>Klawiatura gamingowa w każdej salii</h2>
+        <picture>
+            <source type="image/avif" srcset="./img/3-480.avif 480w, ./img/3-768.avif 768w, ./img/3-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/3-480.webp 480w, ./img/3-768.webp 768w, ./img/3-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/3.jpg" alt="Energylandia" loading="lazy" decoding="async">
+        </picture>
+        <h2>Nowe peryferia komputerowe w każdej sali</h2>
         <p>Wiem, że macie dosyć klawiatur w salach! Obiecuje zmianę. Zakupimy za pieniądze szkolne 400 nowych klawiatur marki Razer!</p>
+        <picture>
+            <source type="image/avif" srcset="./img/4-480.avif 480w, ./img/4-768.avif 768w, ./img/4-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/4-480.webp 480w, ./img/4-768.webp 768w, ./img/4-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/4.png" alt="Klawiatura gamingowa" loading="lazy" decoding="async">
+        </picture>
         <h2>Możliwość jedzenia na lekcji</h2>
         <p>Koniec z siedzeniem głodnym na lekcji. Badania pokazują, że uczniowie uczą się lepiej najedzeni!</p>
+        <picture>
+            <source type="image/avif" srcset="./img/5-480.avif 480w, ./img/5-768.avif 768w, ./img/5-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/5-480.webp 480w, ./img/5-768.webp 768w, ./img/5-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/5.jpg" alt="Możliwość jedzenia na lekcji" loading="lazy" decoding="async">
+        </picture>
         <h2>Lekcje najpóźniej do 14:00</h2>
         <p>Optymalizacja planu lekcji, którą wprowadzę, spowoduje, że lekcje będą trwały najpóźniej do godziny 14:00.</p>
+        <picture>
+            <source type="image/avif" srcset="./img/6-480.avif 480w, ./img/6-768.avif 768w, ./img/6-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/6-480.webp 480w, ./img/6-768.webp 768w, ./img/6-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/6.jpeg" alt="Lekcje najpóźniej do 14:00" loading="lazy" decoding="async">
+        </picture>
         <h2>McDonalds w szkolnym bufecie</h2>
         <p>Chcemy prawdziwej restauracji, a nie drogich i niesmacznych obiadów! Proponuję otwarcie restauracji McDonalds prowadzonej przez nauczycieli za darmo w ramach integracji pracowników szkoły!</p>
+        <picture>
+            <source type="image/avif" srcset="./img/7-480.avif 480w, ./img/7-768.avif 768w, ./img/7-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <source type="image/webp" srcset="./img/7-480.webp 480w, ./img/7-768.webp 768w, ./img/7-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
+            <img src="./img/7.jpg" alt="McDonalds w szkolnym bufecie" loading="lazy" decoding="async">
+        </picture>
         <h2>Darmowy MultiSport!</h2>
         <p>Uważam, że każdy powinien móc za darmo korzystać z karty sportowej MultiSport!</p>
     </main>
@@ -58,11 +105,26 @@
         <h1>Zespół</h1>
     </main>
 
+    <main id="kontakt">
+        <h1>Kontakt</h1>
+        <p>
+            <a href="https://instagram.com/filip_scheffs" target="_blank" rel="noopener noreferrer" aria-label="Instagram: filip_scheffs" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 2C4.24 2 2 4.24 2 7V17C2 19.76 4.24 22 7 22H17C19.76 22 22 19.76 22 17V7C22 4.24 19.76 2 17 2H7Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M16 11.37C16.09 12.24 15.92 13.12 15.51 13.89C15.1 14.65 14.47 15.25 13.7 15.61C12.94 15.98 12.07 16.09 11.22 15.93C10.37 15.77 9.58 15.35 8.97 14.73C8.36 14.11 7.95 13.31 7.79 12.45C7.63 11.6 7.74 10.72 8.1 9.96C8.46 9.19 9.06 8.56 9.83 8.15C10.6 7.74 11.47 7.57 12.34 7.66C13.23 7.75 14.05 8.1 14.69 8.69C15.34 9.28 15.78 10.08 15.95 10.95C15.99 11.09 16 11.23 16 11.37Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M17.5 6.5H17.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>filip_scheffs</span>
+            </a>
+        </p>
+    </main>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
             const firstH1 = document.querySelector('section h1');
+            const heroBanner = document.querySelector('.hero-banner');
             if (!hamburger || !navMenu) return;
             
             // Align hamburger vertically with first H1 and place menu under it (mobile)
@@ -95,6 +157,32 @@
                     hamburger.setAttribute('aria-expanded', 'false');
                 });
             });
+
+            // Per-letter smash animation for hero banner (after all images load)
+            const setupHeroBannerAnimation = () => {
+                if (!heroBanner) return;
+                const originalText = heroBanner.textContent || '';
+                const lines = originalText.split('\n'); // <br> becomes newline in textContent
+                const wrapped = lines.map((line, lineIndex) => {
+                    return Array.from(line)
+                        .map((ch, i) => {
+                            const isSpace = ch === ' ' || ch === '\u00A0';
+                            const safe = isSpace ? '&nbsp;' : ch;
+                            const delay = (i * 40) + (lineIndex * 400);
+                            return `<span class=\"char\" style=\"animation-delay:${delay}ms\">${safe}</span>`;
+                        })
+                        .join('');
+                }).join('<br>');
+                heroBanner.innerHTML = wrapped;
+            };
+
+            if (document.readyState === 'complete') {
+                setupHeroBannerAnimation();
+            } else {
+                window.addEventListener('load', () => {
+                    requestAnimationFrame(setupHeroBannerAnimation);
+                });
+            }
         });
     </script>
 </body>
