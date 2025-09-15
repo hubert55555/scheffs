@@ -12,14 +12,24 @@ main {
     margin-bottom: 2em;
 }
 
-header {
+ul {
+    margin-left: 2em;
+    margin-right: 4em;
+}
+
+
+li {
+    list-style: none !important;
+}
+
+header ul {
     display: flex;
+    justify-content:space-between;
     flex-direction: row;
 }
 
 header a {
     text-decoration: none;
-    margin: 0 2em;
 }
 
 body,html {
