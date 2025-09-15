@@ -2,7 +2,7 @@ main, section {
     text-align: center;
 }
 
-main,section {
+main, section {
     margin-left: auto;
     margin-right: auto;
     width: 70vw;
@@ -12,26 +12,121 @@ main {
     margin-bottom: 2em;
 }
 
-ul {
-    margin-left: 2em;
-    margin-right: 4em;
+body, html {
+    scroll-behavior: smooth;
 }
 
+/* Header styles */
+header {
+    position: relative;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-li {
+/* Hamburger button styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+    display: block;
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Navigation styles */
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.nav-menu li {
     list-style: none !important;
 }
 
-header ul {
-    display: flex;
-    justify-content:space-between;
-    flex-direction: row;
-}
-
-header a {
+.nav-menu a {
     text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
 }
 
-body,html {
-    scroll-behavior: smooth;
+.nav-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Hide menu by default on mobile */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+    
+    /* Show menu when active */
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+    
+    .nav-menu a {
+        padding: 1rem;
+        width: 100%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main, section {
+        width: 90vw;
+    }
+    
+    header {
+        padding: 1rem;
+    }
 }

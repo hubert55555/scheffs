@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scheffs 2025</title>
-    <link rel="stylesheet" href="./pico-main/css/pico.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
 </head>
 <body>
     <header>
-        <ul>
+        <!-- Hamburger menu button -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Navigation menu -->
+        <ul id="navMenu" class="nav-menu">
             <li><a href="#postulaty">Moje postulaty</a></li>
             <li><a href="#o-mnie">O mnie</a></li>
             <li><a href="#zespol">Zespół</a></li>
@@ -19,7 +27,7 @@
 
     <section>
         <h1>Filip Scheffs</h1>
-        <h3>Kandydat na przewodniczącego SU ZSŁ</h2>
+        <h3>Kandydat na przewodniczącego SU ZSŁ</h3>
         <img src="./img/1.jpeg" alt="filas goat">
     </section>
 
@@ -30,13 +38,13 @@
         <h2>Klawiatura gamingowa w każdej salii</h2>
         <p>Wiem, że macie dosyć klawiatur w salach! Obiecuje zmianę. Zakupimy za pieniądze szkolne 400 nowych klawiatur marki Razer!</p>
         <h2>Możliwość jedzenia na lekcji</h2>
-        Koniec z siedzeniem głodnym na lekcji. Badania pokazują, że uczniowie uczą się lepiej najedzeni!
+        <p>Koniec z siedzeniem głodnym na lekcji. Badania pokazują, że uczniowie uczą się lepiej najedzeni!</p>
         <h2>Lekcje najpóźniej do 14:00</h2>
-        Optymalizacja planu lekcji, którą wprowadzę, spowoduje, że lekcje będą trwały najpóźniej do godziny 14:00.
+        <p>Optymalizacja planu lekcji, którą wprowadzę, spowoduje, że lekcje będą trwały najpóźniej do godziny 14:00.</p>
         <h2>McDonalds w szkolnym bufecie</h2>
         <p>Chcemy prawdziwej restauracji, a nie drogich i niesmacznych obiadów! Proponuję otwarcie restauracji McDonalds prowadzonej przez nauczycieli za darmo!</p>
         <h2>Darmowy MultiSport!</h2>
-        Uważam, że każdy powinien móc za darmo korzystać z karty sportowej MultiSport!
+        <p>Uważam, że każdy powinien móc za darmo korzystać z karty sportowej MultiSport!</p>
     </main>
 
     <main id="o-mnie">
@@ -52,5 +60,36 @@
     <main id="zespol">
         <h1>Zespół</h1>
     </main>
+
+    <!-- JavaScript na końcu body -->
+    <script>
+        // Czekaj aż DOM się załaduje
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            // Sprawdź czy elementy istnieją
+            if (!hamburger || !navMenu) {
+                console.error('Hamburger lub navMenu nie znaleziono!');
+                return;
+            }
+            
+            // Dodaj event listener do hamburgera
+            hamburger.addEventListener('click', function() {
+                console.log('Hamburger clicked!'); // Debug
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Zamknij menu po kliknięciu w link
+            const menuLinks = navMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
