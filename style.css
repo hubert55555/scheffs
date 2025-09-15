@@ -64,10 +64,18 @@ main, section {
     }
 }
 
-main, section {
+/* Centering container */
+.container {
+    width: 90vw;
     margin-left: auto;
     margin-right: auto;
-    width: 70vw;
+}
+
+@media screen and (min-width: 769px) {
+    .container {
+        width: 70vw;
+        max-width: 1200px;
+    }
 }
 
 main {
@@ -125,6 +133,8 @@ header {
     background-color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
+
+/* Remove previous desktop centering hacks; header stays full width and uses inner .container */
 
 /* Hamburger button styles */
 .hamburger {
