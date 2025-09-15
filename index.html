@@ -60,7 +60,7 @@
             <img src="./img/3.jpg" alt="Energylandia" loading="lazy" decoding="async">
         </picture>
         <h2>Nowe peryferia komputerowe w każdej sali</h2>
-        <p>Wiem, że macie dosyć klawiatur w salach! Obiecuje zmianę. Zakupimy za pieniądze szkolne 400 nowych klawiatur marki Razer!</p>
+        <p>Wiem, że macie dosyć klawiatur w salach! Obiecuje zmianę. Zakupimy za pieniądze szkolne 4400 nowych klawiatur ma1rki Razer!</p>
         <picture>
             <source type="image/avif" srcset="./img/4-480.avif 480w, ./img/4-768.avif 768w, ./img/4-1200.avif 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
             <source type="image/webp" srcset="./img/4-480.webp 480w, ./img/4-768.webp 768w, ./img/4-1200.webp 1200w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, 70vw">
@@ -168,13 +168,15 @@
                         .map((ch, i) => {
                             const isSpace = ch === ' ' || ch === '\u00A0';
                             const safe = isSpace ? '&nbsp;' : ch;
-                            const baseDelay = 2000; // 2s global delay before animation starts
+                            const baseDelay = 1000; // 1s global delay before animation starts
                             const delay = baseDelay + (i * 40) + (lineIndex * 400);
                             return `<span class=\"char\" style=\"animation-delay:${delay}ms\">${safe}</span>`;
                         })
                         .join('');
                 }).join('<br>');
                 heroBanner.innerHTML = wrapped;
+                // Reveal banner right before animation starts
+                setTimeout(() => { heroBanner.style.display = 'block'; }, 1000);
             };
 
             if (document.readyState === 'complete') {

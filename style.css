@@ -28,6 +28,7 @@ main, section {
     border-radius: 0;
     box-shadow: none;
     white-space: nowrap;
+    display: none; /* hidden until animation start */
 }
 
 /* Smash-in per-letter animation */
